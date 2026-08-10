@@ -1,4 +1,8 @@
 
+
+// Control Flow
+
+
 // function useName (name){
 //     console.log(name);
 // }
@@ -13,6 +17,11 @@
 // greet("Good Morning");
 // useName("Aimable");
 
+
+// Callback in two functions 
+
+
+
 // function greeting (callback) {
 //     console.log("Good Morning Aimable");
 
@@ -24,6 +33,31 @@
 
 // greeting(bye()
 
-setTimeout(() => {
-    console.log("hey Aimable");
-},1000);
+
+//callback with the timer 
+
+
+
+// function say (name) {
+//       console.log(name);
+// }
+
+// setTimeout(() => {
+//     say("Hey Aimable");
+    
+// },1000);
+
+
+
+
+function calculate (num1, num2,callback){
+     let result = num1 + num2;
+     callback();
+     return result;
+}
+
+function diplay () {
+     console.log("Calculation is Done");
+}
+
+console.log(calculate(3,5,diplay));
