@@ -50,18 +50,35 @@
 
 
 
-function calculate (num1, num2,callback){
-     const result = num1 + num2;
-     console.log(result);
-     callback();
-    
-     
-     
+
+
+// function calculate (num1, num2,callback){
+//      const result = num1 + num2;
+//      console.log(result);
+//      callback();
+        
+// }
+
+// function display () {
+//      console.log("Calculation is Done");
+// }
+
+// calculate(3,5,display);
+
+
+
+function calculate (num1,num2,callback){
+     const result = num1 *num2;
+     const message = callback();
+
+     return {
+          result,message
+     }
 }
 
 function display () {
-     console.log("Calculation is Done");
+     return "Operation is finished";
 }
 
-calculate(3,5,display);
+console.log(calculate(3,6,display));
 
