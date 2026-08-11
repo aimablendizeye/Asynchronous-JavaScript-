@@ -83,27 +83,72 @@
 // console.log(calculate(3,6,display));
 
 
-function firstName (name){
-     console.log("034: " + name);
-}
+// function firstName (name){
+//      console.log("034: " + name);
+// }
 
-function lastName (useName){
-     console.log("112: " + useName);
-}
+// function lastName (useName){
+//      console.log("112: " + useName);
+// }
 
-lastName("Ndizeye");
-firstName("Aimable");
+// lastName("Ndizeye");
+// firstName("Aimable");
 
 
-function greeting (){
-     console.log("Hello Aimable");
+// function greeting (callback){
+//      console.log("Hello Aimable");
+//      callback();
+// }
+
+// function saying (callback){
+//      console.log("Have a Nice day ");
+//      callback();
+    
+// }
+
+// function goodbye (){
+//      console.log("See you next time");
+// }
+
+// greeting(()=> {
+//      saying(()=>
+//       goodbye)});
+
+
+// function greet (name , callback){
      
-}
+//      callback(name + " Aimable");
 
-function saying (callback){
-     console.log("Have a Nice day ");
-     callback();
-}
+// }
 
-saying (greeting);
+// function display (message){
+//      console.log(message);
+// }
+
+// console.log(greet("Hello", display));
+
+
+
+
+// Exercises 
+
+console.log("Start");
+
+setTimeout(() => {
+    console.log("A");
+
+    setTimeout(() => {
+        console.log("B");
+    }, 0);
+
+    console.log("C");
+}, 1000);
+
+setTimeout(() => {
+    console.log("D");
+}, 0);
+
+console.log("End");
+
+
 
