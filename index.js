@@ -67,18 +67,43 @@
 
 
 
-function calculate (num1,num2,callback){
-     const result = num1 *num2;
-     const message = callback();
+// function calculate (num1,num2,callback){
+//      const result = num1 *num2;
+//      const message = callback();
 
-     return {
-          result,message
-     }
+//      return {
+//           result,message
+//      }
+// }
+
+// function display () {
+//      return "Operation is finished";
+// }
+
+// console.log(calculate(3,6,display));
+
+
+function firstName (name){
+     console.log("034: " + name);
 }
 
-function display () {
-     return "Operation is finished";
+function lastName (useName){
+     console.log("112: " + useName);
 }
 
-console.log(calculate(3,6,display));
+lastName("Ndizeye");
+firstName("Aimable");
+
+
+function greeting (){
+     console.log("Hello Aimable");
+     
+}
+
+function saying (callback){
+     console.log("Have a Nice day ");
+     callback();
+}
+
+saying (greeting);
 
