@@ -51,13 +51,17 @@
 
 
 function calculate (num1, num2,callback){
-     let result = num1 + num2;
+     const result = num1 + num2;
+     console.log(result);
      callback();
-     return result;
+    
+     
+     
 }
 
-function diplay () {
+function display () {
      console.log("Calculation is Done");
 }
 
-console.log(calculate(3,5,diplay));
+calculate(3,5,display);
+
