@@ -154,22 +154,57 @@
 
 
 // Promises 
+// Example  1
 
-     let name = "AImable"
 
-     const promise = new Promise ((resolve, reject) => {
+//      let name = "AImable"
+
+//      const promise = new Promise ((resolve, reject) => {
   
-    if (name.includes("A")){
-        resolve("This name contain Letter A");
-    }
-    else {
-        reject ("The name doesn't contain A");
-    }
-})
+//     if (name.includes("A")){
+//         resolve("This name contain Letter A");
+//     }
+//     else {
+//         reject ("The name doesn't contain A");
+//     }
+// })
 
-promise.
-  then (response => console.log(response))
-  .catch(error =>console.error(error));
+// promise.
+//   then (response => console.log(response))
+//   .catch(error =>console.error(error));
+
+
+// Example 2 
+
+
+function walkDog (){
+    return new Promise ((resolve , reject) => {
+        setTimeout (() =>{
+            resolve("You walked the Dog");
+        }, 1500);
+    })
+}
+
+function cleanKitchen () {
+    return  new Promise ((resolve, reject) => {
+             setTimeout (() => {
+                  resolve ("You cleaned the Kitchen")
+             }, 1000);
+     })
+}
+
+function moveTrash (){
+     return new Promise ((resolve, reject) => {
+             setTimeout (() => {
+                  resolve ("You moved The Trash")
+             }, 500);
+     })
+}
+
+walkDog().then (value => {console.log(value); return cleanKitchen ()})
+         .then (value => {console.log(value); return moveTrash()})
+         .then (value => {console.log(value); console.log("You finished all the activity")})
+         .catch (error => console.error(error));
 
 
 
