@@ -177,34 +177,79 @@
 // Example 2 
 
 
-function walkDog (){
-    return new Promise ((resolve , reject) => {
-        setTimeout (() =>{
-            resolve("You walked the Dog");
-        }, 1500);
+// function walkDog (){
+//     return new Promise ((resolve , reject) => {
+//         setTimeout (() =>{
+//             resolve("You walked the Dog");
+//         }, 1500);
+//     })
+// }
+
+// function cleanKitchen () {
+//     return  new Promise ((resolve, reject) => {
+//              setTimeout (() => {
+//                   resolve ("You cleaned the Kitchen")
+//              }, 1000);
+//      })
+// }
+
+// function moveTrash (){
+//      return new Promise ((resolve, reject) => {
+//              setTimeout (() => {
+//                   resolve ("You moved The Trash")
+//              }, 500);
+//      })
+// }
+
+// walkDog().then (value => {console.log(value); return cleanKitchen ()})
+//          .then (value => {console.log(value); return moveTrash()})
+//          .then (value => {console.log(value); console.log("You finished all the activity")})
+//          .catch (error => console.error(error));
+
+
+// example 2  
+
+function makeCoffee () {
+    const delay = (ms) => new Promise (resolve => setTimeout(resolve ,ms))
+
+    delay (1000).then (() => {
+              console.log("Coffee is ready!"); return delay (500)
+    }).then (() => console.log("Coffee served!"));
+                
+}
+
+makeCoffee();
+
+
+
+
+
+
+
+function makeCoffee() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve("Coffee is ready!");
+        }, 1000);
+    });
+}
+
+makeCoffee()
+    .then(result => {
+        console.log(result);
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve("Coffee served!");
+            }, 500);
+        });
     })
-}
-
-function cleanKitchen () {
-    return  new Promise ((resolve, reject) => {
-             setTimeout (() => {
-                  resolve ("You cleaned the Kitchen")
-             }, 1000);
-     })
-}
-
-function moveTrash (){
-     return new Promise ((resolve, reject) => {
-             setTimeout (() => {
-                  resolve ("You moved The Trash")
-             }, 500);
-     })
-}
-
-walkDog().then (value => {console.log(value); return cleanKitchen ()})
-         .then (value => {console.log(value); return moveTrash()})
-         .then (value => {console.log(value); console.log("You finished all the activity")})
-         .catch (error => console.error(error));
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.error(error);
+    });
 
 
 
