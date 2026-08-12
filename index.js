@@ -132,23 +132,44 @@
 
 // Exercises 
 
-console.log("Start");
+// console.log("Start");
 
-setTimeout(() => {
-    console.log("A");
+// setTimeout(() => {
+//     console.log("A");
 
-    setTimeout(() => {
-        console.log("B");
-    }, 0);
+//     setTimeout(() => {
+//         console.log("B");
+//     }, 0);
 
-    console.log("C");
-}, 1000);
+//     console.log("C");
+// }, 1000);
 
-setTimeout(() => {
-    console.log("D");
-}, 0);
+// setTimeout(() => {
+//     console.log("D");
+// }, 0);
 
-console.log("End");
+// console.log("End");
+
+
+
+
+// Promises 
+
+     let name = "AImable"
+
+     const promise = new Promise ((resolve, reject) => {
+  
+    if (name.includes("A")){
+        resolve("This name contain Letter A");
+    }
+    else {
+        reject ("The name doesn't contain A");
+    }
+})
+
+promise.
+  then (response => console.log(response))
+  .catch(error =>console.error(error));
 
 
 
