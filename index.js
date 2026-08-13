@@ -311,18 +311,58 @@
 // console.log(result);
 
 
-const promise = new Promise ((resolve,reject) => {
-         setTimeout (() => {
-          resolve (10)
-         }, 3 * 100);
+
+
+// Returning Promise inside then () Method
+
+
+
+
+// const promise = new Promise ((resolve,reject) => {
+//          setTimeout (() => {
+//           resolve (10)
+//          }, 3 * 100);
+// })
+
+// promise.then ( (value) =>{ 
+//   console.log(value);
+//    return value *2;
+// }).then ((value) => {
+//   console.log(value);
+  
+// })
+
+
+
+// returning Nested promise inside Then () Method 
+
+
+
+
+const p = new Promise ((resolve,reject) => {
+   setTimeout (() => {
+         resolve(10)
+   }, 3000);
 })
 
-promise.then ( (value) =>{ 
+p.then ((value) => {
   console.log(value);
-   return value *2;
+
+  return new Promise ((resolve,reject)=> {
+    setTimeout (() => {
+      resolve (value * 3);
+    },2000)
+  })
+
 }).then ((value) => {
-  console.log(value);
-  
-})
+  console.log(value)
+
+  return new Promise ((resolve, reject) => {
+    setTimeout (()=> {
+      resolve (value *4);
+    },1000)
+  })
+
+}).then (value => console.log(value));
 
 
