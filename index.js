@@ -290,13 +290,22 @@
 
 
 
-setTimeout (() => {
-  console.log("Hello Aimable");
-  setTimeout (() => {
-    console.log("Hey How are you?")
 
-    setTimeout (() => {
-      console.log("Are feeling Okay!")
-    },0);
-  } ,500);
-},1000);
+// setTimeout (() => {
+//   console.log("Hello Aimable");
+//   setTimeout (() => {
+//     console.log("Hey How are you?")
+
+//     setTimeout (() => {
+//       console.log("Are feeling Okay!")
+//     },0);
+//   } ,500);
+// },1000);
+
+
+async function getData (){
+  return 43;
+}
+
+let result = getData();
+console.log(result);
