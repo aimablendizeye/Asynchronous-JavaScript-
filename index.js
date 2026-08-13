@@ -339,30 +339,52 @@
 
 
 
-const p = new Promise ((resolve,reject) => {
-   setTimeout (() => {
-         resolve(10)
-   }, 3000);
-})
+// const p = new Promise ((resolve,reject) => {
+//    setTimeout (() => {
+//          resolve(10)
+//    }, 3000);
+// })
 
-p.then ((value) => {
-  console.log(value);
+// p.then ((value) => {
+//   console.log(value);
 
-  return new Promise ((resolve,reject)=> {
-    setTimeout (() => {
-      resolve (value * 3);
-    },2000)
-  })
+//   return new Promise ((resolve,reject)=> {
+//     setTimeout (() => {
+//       resolve (value * 3);
+//     },2000)
+//   })
 
-}).then ((value) => {
-  console.log(value)
+// }).then ((value) => {
+//   console.log(value)
 
+//   return new Promise ((resolve, reject) => {
+//     setTimeout (()=> {
+//       resolve (value *4);
+//     },1000)
+//   })
+
+// }).then (value => console.log(value));
+
+
+function calculate (a,b) {
   return new Promise ((resolve, reject) => {
-    setTimeout (()=> {
-      resolve (value *4);
+    setTimeout (() => {
+      if (b>0) {
+     resolve (a/b);
+      }
+      else {
+        reject ("It's Impossible");
+      }
     },1000)
   })
+}
+;
+calculate(8,4).then ((result) => {
+  console.log(result);
+  
 
-}).then (value => console.log(value));
+  
+})
+.catch (error => console.error(error));
 
 
