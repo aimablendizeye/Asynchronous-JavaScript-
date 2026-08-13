@@ -303,9 +303,26 @@
 // },1000);
 
 
-async function getData (){
-  return 43;
-}
+// async function getData (){
+//   return 43;
+// }
 
-let result = getData();
-console.log(result);
+// let result = getData();
+// console.log(result);
+
+
+const promise = new Promise ((resolve,reject) => {
+         setTimeout (() => {
+          resolve (10)
+         }, 3 * 100);
+})
+
+promise.then ( (value) =>{ 
+  console.log(value);
+   return value *2;
+}).then ((value) => {
+  console.log(value);
+  
+})
+
+
