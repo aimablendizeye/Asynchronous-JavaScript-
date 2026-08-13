@@ -177,61 +177,61 @@
 // Example 2 // Try using Async and await 
 
 
-function walkDog (){
-    return new Promise ((resolve , reject) => {
-        setTimeout (() =>{
-            let walkdog = true;
-            if (walkdog){
-                    resolve("You walked the Dog");
-            }
-            else {
-                reject ("You don't walked the dog");
-            }
+// function walkDog (){
+//     return new Promise ((resolve , reject) => {
+//         setTimeout (() =>{
+//             let walkdog = true;
+//             if (walkdog){
+//                     resolve("You walked the Dog");
+//             }
+//             else {
+//                 reject ("You don't walked the dog");
+//             }
             
-        }, 1500);
-    })
-}
+//         }, 1500);
+//     })
+// }
 
-function cleanKitchen () {
-    return  new Promise ((resolve, reject) => {
-             setTimeout (() => {
-                  resolve ("You cleaned the Kitchen")
-             }, 1000);
-     })
-}
+// function cleanKitchen () {
+//     return  new Promise ((resolve, reject) => {
+//              setTimeout (() => {
+//                   resolve ("You cleaned the Kitchen")
+//              }, 1000);
+//      })
+// }
 
-function moveTrash (){
-     return new Promise ((resolve, reject) => {
-             setTimeout (() => {
-                  resolve ("You moved The Trash")
-             }, 500);
-     })
-}
+// function moveTrash (){
+//      return new Promise ((resolve, reject) => {
+//              setTimeout (() => {
+//                   resolve ("You moved The Trash")
+//              }, 500);
+//      })
+// }
 
-async function activities () {
+// async function activities () {
 
-  try {
+//   try {
 
-    const first = await walkDog();
-    console.log(first);
+//     const first = await walkDog();
+//     console.log(first);
 
-    const second = await cleanKitchen ();
-    console.log(second);
+//     const second = await cleanKitchen ();
+//     console.log(second);
 
-     const third = await moveTrash ();
-    console.log(third);
+//      const third = await moveTrash ();
+//     console.log(third);
 
-    console.log("all the task completed");
+//     console.log("all the task completed");
 
-  }
-  catch (error) {
-    console.error(error);
+//   }
+//   catch (error) {
+//     console.error(error);
 
-  }
+//   }
    
-}
+// }
 
-activities();
+// activities();
 
 
 // walkDog().then (value => {console.log(value); return cleanKitchen ()})
@@ -290,3 +290,13 @@ activities();
 
 
 
+setTimeout (() => {
+  console.log("Hello Aimable");
+  setTimeout (() => {
+    console.log("Hey How are you?")
+
+    setTimeout (() => {
+      console.log("Are feeling Okay!")
+    },0);
+  } ,500);
+},1000);
