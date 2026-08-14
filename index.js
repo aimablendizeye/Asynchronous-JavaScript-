@@ -366,25 +366,87 @@
 // }).then (value => console.log(value));
 
 
-function calculate (a,b) {
-  return new Promise ((resolve, reject) => {
-    setTimeout (() => {
-      if (b>0) {
-     resolve (a/b);
-      }
-      else {
-        reject ("It's Impossible");
-      }
-    },1000)
-  })
-}
-;
-calculate(8,4).then ((result) => {
-  console.log(result);
+// function calculate (a,b) {
+//   return new Promise ((resolve, reject) => {
+//     setTimeout (() => {
+//       if (b>0) {
+//      resolve (a/b);
+//       }
+//       else {
+//         reject ("It's Impossible");
+//       }
+//     },1000)
+//   })
+// }
+// ;
+// calculate(8,4).then ((result) => {
+//   console.log(result);te
   
+// })
+// .catch (error => console.error(error));
+
+
+
+
+// sync and Async 
+
+
+
+// function step1 (callback) {
+  
+//   console.log("1")
+//   callback();
+// }
+
+
+// function step2 (callback) {
 
   
+//   setTimeout (() => {
+//       callback();
+       
+//         console.log("2")
+//   },3000)
+  
+// }
+
+
+// function step3 (callback) {
+//   console.log("3")
+//   callback();
+// }
+
+
+// function step4 () {
+//   console.log("4")
+// }
+
+// step1 (() =>{
+//    step2 (() =>
+//      step3 (() => 
+//       step4()));
+// });
+
+
+
+
+// Promise Chaining 
+ 
+async function MorningPromise () {
+  return  new Promise ((resolve, reject) => {
+    setTimeout (() => {
+      resolve ("Good Morning Aimable");
+    },2000)
 })
-.catch (error => console.error(error));
+
+}
+ let p = await MorningPromise();
+        console.log(p);
+
+MorningPromise();
+
+
+
+// MorningPromise().then (result => console.log(result));
 
 
