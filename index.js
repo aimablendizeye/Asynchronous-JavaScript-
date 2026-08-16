@@ -431,22 +431,74 @@
 
 
 // Promise Chaining 
+
+// example 1;
  
-async function MorningPromise () {
-  return  new Promise ((resolve, reject) => {
-    setTimeout (() => {
-      resolve ("Good Morning Aimable");
-    },2000)
-})
+// async function MorningPromise () {
+//   return  new Promise ((resolve, reject) => {
+//     setTimeout (() => {
+//       resolve ("Good Morning Aimable");
+//     },2000)
+// })
 
-}
- let p = await MorningPromise();
-        console.log(p);
+// }
+//  let p = await MorningPromise();
+//         console.log(p);
 
-MorningPromise();
+// MorningPromise();
 
 
 
 // MorningPromise().then (result => console.log(result));
 
 
+
+
+// Example 2
+
+// Promise chain 
+
+
+// let p = new Promise ((resolve, reject) =>{
+//    setTimeout (() =>{
+//     resolve (10);
+//    },2000)
+// }
+// )
+
+// p.then ((value) =>{
+//   console.log(value);
+
+//   return value * 4;
+// }).then ((value) => {
+//   console.log(value);
+
+//  return value *5;
+
+// }).then (value => console.log(value));
+
+
+
+// promise chain with async and await 
+
+
+
+async function chaining () {
+   return new Promise ((resolved , rejected) => {
+    setTimeout (() => {
+      resolved(20);
+    })
+   })
+}
+
+let p = await chaining ();
+   setTimeout (()=> {
+      p = p *3
+ console.log(p)
+  },3000);
+  
+let v = await chaining();
+     v= p +10;
+console.log(v);
+
+ chaining();
