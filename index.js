@@ -506,17 +506,17 @@
 //  chaining();
 
 
-function tasks () {
-   return new Promise ((resolve,reject) => {
-      resolve ("Today is Sunday");
-   })
-}
+// function tasks () {
+//    return new Promise ((resolve,reject) => {
+//       resolve ("Today is Sunday");
+//    })
+// }
 
-tasks().then ((value) =>{
-    console.log(value + " it is a blessing today")
-    return value + " It is a blessing Today";
+// tasks().then ((value) =>{
+//     console.log(value + " it is a blessing today")
+//     return value + " It is a blessing Today";
     
-}).then (value => console.log(value));
+// }).then (value => console.log(value));
 
 
 
