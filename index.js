@@ -479,26 +479,44 @@
 
 
 
+
+
 // promise chain with async and await 
 
 
 
-async function chaining () {
-   return new Promise ((resolved , rejected) => {
-    setTimeout (() => {
-      resolved(20);
-    })
+// async function chaining () {
+//    return new Promise ((resolved , rejected) => {
+//     setTimeout (() => {
+//       resolved(20);
+//     })
+//    })
+// }
+
+// let p = await chaining ();
+//    setTimeout (()=> {
+//       p = p *3
+//  console.log(p)
+//   },3000);
+  
+// let v = await chaining();
+//      v= p +10;
+// console.log(v);
+
+//  chaining();
+
+
+function tasks () {
+   return new Promise ((resolve,reject) => {
+      resolve ("Today is Sunday");
    })
 }
 
-let p = await chaining ();
-   setTimeout (()=> {
-      p = p *3
- console.log(p)
-  },3000);
-  
-let v = await chaining();
-     v= p +10;
-console.log(v);
+tasks().then ((value) =>{
+    console.log(value + " it is a blessing today")
+    return value + " It is a blessing Today";
+    
+}).then (value => console.log(value));
 
- chaining();
+
+
