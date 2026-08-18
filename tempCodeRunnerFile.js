@@ -1,1 +1,9 @@
- console.log(`Result : ${result}`);
+
+// async function multiple (){
+
+//     const  [customerData,productData,salesData] = await Promise.all([
+              
+//     ])
+
+    
+// }
