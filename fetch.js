@@ -49,14 +49,27 @@
 
 
 
-const name = ["Aimable","Benjamin","Reponse","Manzi"]
 
-const stringfy = JSON.stringify(name);
-console.log(name);
-
-fetch("aimable.json")
-     .then (response => response.json())
-     .then (value => console.log(value));
+// Fetching some data  and read them in console
 
 
-console.log("Browser is Working!");
+
+// const name = ["Aimable","Benjamin","Reponse","Manzi"]
+
+// const stringfy = JSON.stringify(name);
+// console.log(name);
+
+// fetch("aimable.json")
+//      .then (response => response.json())
+//      .then (value => console.log(value));
+
+
+// console.log("Browser is Working!");
+
+
+
+fetch ("https://pokeapi.co/api/v2/pokemon/pikachu")
+      .then (response =>  response.json())
+      .then (data => console.log(data.name))
+      .catch(error => console.error(error));
+     
