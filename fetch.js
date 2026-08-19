@@ -53,3 +53,10 @@ const name = ["Aimable","Benjamin","Reponse","Manzi"]
 
 const stringfy = JSON.stringify(name);
 console.log(name);
+
+fetch("aimable.json")
+     .then (response => response.json())
+     .then (value => console.log(value));
+
+
+console.log("Browser is Working!");
