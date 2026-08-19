@@ -67,9 +67,49 @@
 // console.log("Browser is Working!");
 
 
+// Fetching some data using fetch method and then;
 
-fetch ("https://pokeapi.co/api/v2/pokemon/pikachu")
-      .then (response =>  response.json())
-      .then (data => console.log(data.name))
-      .catch(error => console.error(error));
+
+
+// fetch ("https://pokeapi.co/api/v2/pokemon/pikachu")
+//       .then (response => {
+//             if (!response.ok) {
+//                   throw new Error ("Could not fetch Resources");
+//             }
+//             else {
+//                   return response.json();
+//             }
+//       })
+//       .then (data => console.log(data.id))
+//       .catch(error => console.error(error));
      
+
+
+
+// fetch using async and await 
+
+
+async function loadData () {
+  try {
+
+       const pikachuData = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu"); 
+      if (!pikachuData.ok) {
+            throw new Error ("Couldn't fetch data");
+      }
+      else {
+               const response = await pikachuData.json();
+                 console.log(response);
+      }
+
+  }
+
+  catch(error)  {
+             console.error(error)
+  } ;
+     
+     
+
+    
+}
+
+loadData();
