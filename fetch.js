@@ -164,28 +164,40 @@ const render = (users) => {
 
 // Fetching data Using XHR 
 
+
+
 //  Question 3 - XHR fetch  
 
-  let  xhr = new XMLHttpRequest ();
+  // let  xhr = new XMLHttpRequest ();
 
-  xhr.open ('GET',"https://jsonplaceholder.typicode.com/users");
-  xhr.responseText = "json";
+  // xhr.open ('GET',"https://jsonplaceholder.typicode.com/users");
+  // xhr.responseText = "json";
 
-   xhr.onload = function(){
+  //  xhr.onload = function(){
 
-    if (xhr.status >=200 && xhr.status <300) {
-       console.log(xhr.response);
+  //   if (xhr.status >=200 && xhr.status <300) {
+  //      console.log(xhr.response);
 
-    }
-    else {
-      console.log("Error:",xhr.status)
-    }   
-   };
-   xhr.onerror = function () {
-      console.log("Network Error");
-   }
+  //   }
+  //   else {
+  //     console.log("Error:",xhr.status)
+  //   }   
+  //  };
+  //  xhr.onerror = function () {
+  //     console.log("Network Error");
+  //  }
 
-   xhr.send();
+  //  xhr.send();
+
+
+  async function  loadData() {
+    const response = await fetch ("https://jsonplaceholder.typicode.com/users")
+    const data = await response.json();
+    console.log(data);
+    
+  }
+
+  loadData();
 
 
 
