@@ -190,14 +190,18 @@ const render = (users) => {
   //  xhr.send();
 
 
-  async function  loadData() {
-    const response = await fetch ("https://jsonplaceholder.typicode.com/users")
-    const data = await response.json();
-    console.log(data);
-    
-  }
+  // Fetch API 
 
-  loadData();
+
+
+  // async function  loadData() {
+  //   const response = await fetch ("https://jsonplaceholder.typicode.com/users")
+  //   const data = await response.json();
+  //   console.log(data);
+    
+  // }
+
+  // loadData();
 
 
 
