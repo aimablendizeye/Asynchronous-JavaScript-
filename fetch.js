@@ -89,27 +89,104 @@
 // fetch using async and await 
 
 
-async function loadData () {
-  try {
 
-       const pikachuData = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu"); 
-      if (!pikachuData.ok) {
-            throw new Error ("Couldn't fetch data");
-      }
-      else {
-               const response = await pikachuData.json();
-                 console.log(response);
-      }
+// fetching pikachu data 
 
-  }
 
-  catch(error)  {
-             console.error(error)
-  } ;
-     
-     
 
-    
-}
 
-loadData();
+
+// async function loadData () {
+//   try {
+
+//        const pikachuData = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu"); 
+//       if (!pikachuData.ok) {
+//             throw new Error ("Couldn't fetch data");
+//       }
+//       else {
+//                const response = await pikachuData.json();
+//                  console.log(response);
+//       }
+
+//   }
+//   catch(error)  {
+//              console.error(error)
+//   } ;
+       
+// }
+// loadData();
+
+
+
+//   fetch ("").then (response => {
+//       if (!response.ok){
+//         throw new Error ("Couldn't get resources")
+//       }
+
+//       return response.json();
+//   })
+
+
+//   async function getData () {
+
+//   }
+
+//   // or 
+
+//   const getData = async () => {
+
+//   }
+
+//   const have = () => {
+//     console.log ("Having someone like you is really amazing")
+//   }
+
+//   have();
+
+
+
+const getUsers = async () => {
+  const url = 'https://jsonplaceholder.typicode.com/users';
+  const response = await fetch(url);
+  return await response.json();
+};
+
+const render = (users) => {
+  return users.map(({ name, email }) => `<li>${name} (${email})</li>`).join('');
+};
+
+(async () => {
+  const users = await getUsers();
+  document.querySelector('#content').innerHTML = `<ul>${render(users)}</ul>`;
+})();
+
+
+
+// Fetching data Using XHR 
+
+//  Question 3 - XHR fetch  
+
+  let  xhr = new XMLHttpRequest ();
+
+  xhr.open ('GET',"https://jsonplaceholder.typicode.com/users");
+  xhr.responseText = "json";
+
+   xhr.onload = function(){
+
+    if (xhr.status >=200 && xhr.status <300) {
+       console.log(xhr.response);
+
+    }
+    else {
+      console.log("Error:",xhr.status)
+    }   
+   };
+   xhr.onerror = function () {
+      console.log("Network Error");
+   }
+
+   xhr.send();
+
+
+
+  

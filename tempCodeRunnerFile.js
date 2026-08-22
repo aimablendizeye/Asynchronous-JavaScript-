@@ -1,9 +1,9 @@
+  async function getData () {
 
-// async function multiple (){
+//   }
 
-//     const  [customerData,productData,salesData] = await Promise.all([
-              
-//     ])
+//   // or 
 
-    
-// }
+//   const getData = async () => {
+
+//   }
