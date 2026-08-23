@@ -2,6 +2,8 @@
 
 // Fetching data 
 
+const { use } = require("react");
+
 // const fs = require("fs/promises");
 
 // async function loadData() {
@@ -208,30 +210,71 @@ const render = (users) => {
 // Post Method 
 
 
-async function pushData () {
-  const user = {
-    id : 2929,
-    name : "Aimable",
-    address : "Kanombe"
+// async function pushData () {
+//   const user = {
+//     id : 2929,
+//     name : "Aimable",
+//     address : "Kanombe"
+//   }
+
+//   const response = await fetch("https://jsonplaceholder.typicode.com/users" ,{
+//       method : "POST",
+//       headers : {
+//         "Content-Type" : "application/json"
+//       },
+//       body :  JSON.stringify(user)
+
+//   })
+
+//   const data = await response.json ();
+
+//   console.log(data);
+
+
+// }
+
+// pushData ();
+
+
+
+// Post Mthod With parameter 
+
+
+async function createData (user) {
+
+  try {
+    const url =  "https://jsonplaceholder.typicode.com/users"
+    const headers = {
+      "Content-Type" : "application/json"
+    }
+
+    const body =JSON.stringify({
+        id : user.id,
+        name : user.name,
+        address : user.address
+
+    }) 
+
+    const response = await fetch (url, { method: "POST",
+      headers, body });
+
+      const data = await response.json();
+      console.log(data);
+      }
+
+  catch (error) {
+    console.log(error)
+    
   }
-
-  const response = await fetch("https://jsonplaceholder.typicode.com/users" ,{
-      method : "POST",
-      headers : {
-        "Content-Type" : "application/json"
-      },
-      body :  JSON.stringify(user)
-
-  })
-
-  const data = await response.json ();
-
-  console.log(data);
+ 
+  }
+createData ({
+  id : 2789,
+  name : "aimable",
+  address : "jjjj"
+})
 
 
-}
-
-pushData ();
 
 
   
