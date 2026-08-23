@@ -240,39 +240,41 @@ const render = (users) => {
 // Post Mthod With parameter 
 
 
-async function createData (user) {
+// async function createData (user) {
 
-  try {
-    const url =  "https://jsonplaceholder.typicode.com/users"
-    const headers = {
-      "Content-Type" : "application/json"
-    }
+//   try {
+//     const url =  "https://jsonplaceholder.typicode.com/users"
+//     const headers = {
+//       "Content-Type" : "application/json"
+//     }
 
-    const body =JSON.stringify({
-        id : user.id,
-        name : user.name,
-        address : user.address
+//     const body =JSON.stringify({
+//         id : user.id,
+//         name : user.name,
+//         address : user.address
 
-    }) 
+//     }) 
 
-    const response = await fetch (url, { method: "POST",
-      headers, body });
+//     const response = await fetch (url, { method: "POST",
+//       headers, body });
 
-      const data = await response.json();
-      console.log(data);
-      }
+//       const data = await response.json();
+//       console.log(data);
+//       }
 
-  catch (error) {
-    console.log(error)
+//   catch (error) {
+//     console.log(error)
     
-  }
+//   }
  
-  }
-createData ({
-  id : 2789,
-  name : "aimable",
-  address : "jjjj"
-})
+//   }
+// createData ({
+//   id : 2789,
+//   name : "aimable",
+//   address : "jjjj"
+// })
+
+
 
 
 
