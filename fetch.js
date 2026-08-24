@@ -2,7 +2,7 @@
 
 // Fetching data 
 
-const { use } = require("react");
+
 
 // const fs = require("fs/promises");
 
@@ -147,20 +147,20 @@ const { use } = require("react");
 
 
 
-const getUsers = async () => {
-  const url = 'https://jsonplaceholder.typicode.com/users';
-  const response = await fetch(url);
-  return await response.json();
-};
+// const getUsers = async () => {
+//   const url = 'https://jsonplaceholder.typicode.com/users';
+//   const response = await fetch(url);
+//   return await response.json();
+// };
 
-const render = (users) => {
-  return users.map(({ name, email }) => `<li>${name} (${email})</li>`).join('');
-};
+// const render = (users) => {
+//   return users.map(({ name, email }) => `<li>${name} (${email})</li>`).join('');
+// };
 
-(async () => {
-  const users = await getUsers();
-  document.querySelector('#content').innerHTML = `<ul>${render(users)}</ul>`;
-})();
+// (async () => {
+//   const users = await getUsers();
+//   document.querySelector('#content').innerHTML = `<ul>${render(users)}</ul>`;
+// })();
 
 
 
@@ -278,26 +278,58 @@ const render = (users) => {
 
 
 
-console.log("JavaScript file loaded");
+// console.log("JavaScript file loaded");
 
-console.log("About to run fetch");
+// console.log("About to run fetch");
 
 
-fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+// fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
   
 
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error("Fetch error:", error);
-  });
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error("Network response was not ok");
+//     }
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((error) => {
+//     console.error("Fetch error:", error);
+//   });
+
+
+
+function getFirstName (student) {
+    console.log(student.sayHello());
+}
+
+getFirstName({
+   name : "aimable",
+   id : 234,
+   address : "kkkk",
+   sayHello : () =>  console.log(`Hello My Friend ${this.name}`)
+})
+
+
+
+const xhr = new XMLHttpRequest ()
+ xhr.open ('GET',url)
+
+  xhr.responseType = "json";
+
+ xhr.onload  = () => {
+  // const user = JSON.parse(xhr.responseText)
+  //   console.log(user);
+console.log(xhr.response);
+ }
+
+ xhr.onerror = () => {
+  console.log(error)
+ }
+
+ xhr.send()
 
 
    
