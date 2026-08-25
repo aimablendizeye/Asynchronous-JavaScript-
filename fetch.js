@@ -301,35 +301,70 @@
 
 
 
-function getFirstName (student) {
-    console.log(student.sayHello());
-}
+// function getFirstName (student) {
+//     console.log(student.sayHello());
+// }
 
-getFirstName({
-   name : "aimable",
-   id : 234,
-   address : "kkkk",
-   sayHello : () =>  console.log(`Hello My Friend ${this.name}`)
-})
+// getFirstName({
+//    name : "aimable",
+//    id : 234,
+//    address : "kkkk",
+//    sayHello : () =>  console.log(`Hello My Friend ${this.name}`)
+// })
 
 
 
-const xhr = new XMLHttpRequest ()
- xhr.open ('GET',url)
+// const xhr = new XMLHttpRequest ()
+//  xhr.open ('GET',url)
 
-  xhr.responseType = "json";
+//   xhr.responseType = "json";
 
- xhr.onload  = () => {
+//  xhr.onload  = () => {
   // const user = JSON.parse(xhr.responseText)
   //   console.log(user);
-console.log(xhr.response);
- }
 
- xhr.onerror = () => {
-  console.log(error)
- }
+// console.log(xhr.response);
+//  }
 
- xhr.send()
+//  xhr.onerror = () => {
+//   console.log(error)
+//  }
+//  xhr.send()
+
+
+
+// 
+
+
+const controller = new AbortController();
+
+async function stopping (file) {
+
+  try {
+      const response = await fetch (file, {
+      signal: controller.signal
+    })
+
+    if (!response.ok) {
+       throw new Error ("Download cancelled");
+    }
+    const data = await response.text();
+    console.log (data);
+
+  }
+  catch (error) {
+    if (error.name !== "AbortError") {
+      console.log(error)
+
+    }
+  }
+  
+
+}
+
+stoping ("Amable.text");
+
+ 
 
 
    
