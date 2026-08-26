@@ -336,33 +336,66 @@
 // 
 
 
-const controller = new AbortController();
+// const controller = new AbortController();
 
-async function stopping (file) {
+// async function stopping (file) {
 
-  try {
-      const response = await fetch (file, {
-      signal: controller.signal
-    })
+//   try {
+//       const response = await fetch (file, {
+//       signal: controller.signal
+//     })
 
-    if (!response.ok) {
-       throw new Error ("Download cancelled");
-    }
-    const data = await response.text();
-    console.log (data);
+//     if (!response.ok) {
+//        throw new Error ("Download cancelled");
+//     }
+//     const data = await response.text();
+//     console.log (data);
 
-  }
-  catch (error) {
-    if (error.name !== "AbortError") {
-      console.log(error)
+//   }
+//   catch (error) {
+//     if (error.name !== "AbortError") {
+//       console.log(error)
 
-    }
-  }
-  
+//     }
+//   }
 
-}
+// }
 
-stoping ("Amable.text");
+//  stopping ("Amable.text");
+
+
+
+
+
+// async function usersAddresses() {
+//   try {
+//     const response = await fetch(
+//       "https://jsonplaceholder.typicode.com/users"
+//     );
+
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch users");
+//     }
+
+//     const users = await response.json();
+
+//     return users
+//       .slice(0, 3)
+//       .map(user => ({
+//         address: user.address
+//       }));
+
+//   } catch (error) {
+//     throw error;
+//   }
+// }
+
+// // Example usage
+// usersAddresses()
+//   .then(addresses => console.log(addresses))
+//   .catch(error => console.error("Error:", error));
+
+
 
  
 
