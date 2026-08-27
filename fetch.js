@@ -396,6 +396,33 @@
 //   .catch(error => console.error("Error:", error));
 
 
+async function  myFetch() {
+
+  const userUrl = "https://jsonplaceholder.typicode.com/todos?utm_source=chatgpt.com"
+  const todosUrl = "https://jsonplaceholder.typicode.com/todos?utm_source=chatgpt.com"
+
+  const [userResponse, todoResponse] = await Promise.all ([
+                                   userUrl, todosUrl
+  ])
+
+  const [userData , todosData] = await Promise.all ([
+                          userResponse.json(),
+                           todoResponse.json ()
+  ])
+
+    return userData.map (user => ({
+      ...user,
+      todosData: todosData.filter(todo => todo.userId == user.id)
+    }))
+
+
+}
+
+myFetch ().then (data => console.log(data)).catch(error => console.log(error));
+  
+
+
+
 
  
 
