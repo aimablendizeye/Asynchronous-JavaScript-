@@ -396,29 +396,63 @@
 //   .catch(error => console.error("Error:", error));
 
 
-async function  myFetch() {
-
-  const userUrl = "https://jsonplaceholder.typicode.com/todos?utm_source=chatgpt.com"
-  const todosUrl = "https://jsonplaceholder.typicode.com/todos?utm_source=chatgpt.com"
-
-  const [userResponse, todoResponse] = await Promise.all ([
-                                   userUrl, todosUrl
-  ])
-
-  const [userData , todosData] = await Promise.all ([
-                          userResponse.json(),
-                           todoResponse.json ()
-  ])
-
-    return userData.map (user => ({
-      ...user,
-      todosData: todosData.filter(todo => todo.userId == user.id)
-    }))
 
 
+// async function  myFetch() {
+
+//   const userUrl = "https://jsonplaceholder.typicode.com/todos?utm_source=chatgpt.com"
+//   const todosUrl = "https://jsonplaceholder.typicode.com/todos?utm_source=chatgpt.com"
+
+//   const [userResponse, todoResponse] = await Promise.all ([
+//                                    userUrl, todosUrl
+//   ])
+
+//   const [userData , todosData] = await Promise.all ([
+//                           userResponse.json(),
+//                            todoResponse.json ()
+//   ])
+
+//     return userData.map (user => ({
+//       ...user,
+//       todosData: todosData.filter(todo => todo.userId == user.id)
+//     }))
+
+
+// }
+
+// myFetch ().then (data => console.log(data)).catch(error => console.log(error));
+
+
+
+
+// Q 1  in Mental model Session  asynchronous 
+
+
+
+async function createAlarm (name, delay) {
+  return new Promise ((resolve, reject) => {
+
+    setTimeout (() => {
+      if (delay >= 2000) {
+        resolve (`Wake up ${name} `)
+      }
+      else if (delay <2000) {
+        reject("Delay is not Sufficient");
+      }
+        
+      
+    },delay)
+  })
 }
 
-myFetch ().then (data => console.log(data)).catch(error => console.log(error));
+createAlarm('John', 1000).then((message) => {
+    console.log(message) // output "Wake up John" after 4 seconds
+}).catch((error) => {
+    console.error(error)
+})
+
+
+
   
 
 
