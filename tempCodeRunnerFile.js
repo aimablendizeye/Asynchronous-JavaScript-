@@ -1,9 +1,14 @@
-  async function getData () {
+ async function* numbers() {
+//     yield 10;
+//     yield 20;
+//     yield 30;
 
-//   }
+// }
 
-//   // or 
+// const gen = numbers();
 
-//   const getData = async () => {
-
-//   }
+// console.log(await gen.next());
+// console.log(await gen.next());
+// console.log(await gen.next());
+// console.log(await gen.next());
+// console.log(await gen.next());

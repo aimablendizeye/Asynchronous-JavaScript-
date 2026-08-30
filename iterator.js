@@ -9,3 +9,6 @@ const arr = [10,20,30]
 const iterators = arr[Symbol.iterator]();
 
 console.log(iterators.next());
+console.log(iterators.next());
+console.log(iterators.next());
+console.log(iterators.next());
