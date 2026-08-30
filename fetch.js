@@ -445,7 +445,7 @@ async function createAlarm (name, delay) {
   })
 }
 
-createAlarm('John', 1000).then((message) => {
+createAlarm('John', 4000).then((message) => {
     console.log(message) // output "Wake up John" after 4 seconds
 }).catch((error) => {
     console.error(error)
