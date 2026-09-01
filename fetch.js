@@ -429,27 +429,27 @@
 
 
 
-async function createAlarm (name, delay) {
-  return new Promise ((resolve, reject) => {
+// async function createAlarm (name, delay) {
+//   return new Promise ((resolve, reject) => {
 
-    setTimeout (() => {
-      if (delay >= 2000) {
-        resolve (`Wake up ${name} `)
-      }
-      else if (delay <2000) {
-        reject("Delay is not Sufficient");
-      }
+//     setTimeout (() => {
+//       if (delay >= 2000) {
+//         resolve (`Wake up ${name} `)
+//       }
+//       else if (delay <2000) {
+//         reject("Delay is not Sufficient");
+//       }
         
       
-    },delay)
-  })
-}
+//     },delay)
+//   })
+// }
 
-createAlarm('John', 4000).then((message) => {
-    console.log(message) // output "Wake up John" after 4 seconds
-}).catch((error) => {
-    console.error(error)
-})
+// createAlarm('John', 4000).then((message) => {
+//     console.log(message) // output "Wake up John" after 4 seconds
+// }).catch((error) => {
+//     console.error(error)
+// })
 
 
 

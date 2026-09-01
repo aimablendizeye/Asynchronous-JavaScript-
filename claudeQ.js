@@ -36,9 +36,66 @@ runWithLimit(tasks, 2).then(result => console.log(result));
 
 
 
-// Q 4 
 
 
 
 
+
+// Q 6 
+
+async function loadData(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.filter(n => n.id === 1);
+
+  } catch (error) {
+    console.error("loadData failed:", error);
+    throw error; // don't swallow it — let the caller know
+  }
+}
+
+loadData("https://jsonplaceholder.typicode.com/users")
+  .then(value => console.log(value))
+  .catch(error => console.log("Caught in caller:", error));
+
+console.log("App started");
+
+
+
+
+//Q 10 
+
+async function fetchWithTimeout(url, ms) {
+   
+  const controller = new AbortController();
+
+  const timeOut = setTimeout(() => {
+      controller.abort();
+  },ms)
+}
+
+try {
+  const response = await fetch (url)
+  if (!response.ok) {
+    throw new Error (`Http request error : ${response.status}`)
+  }
+  const data = await response.json();
+    return data;
+
+}catch  (error) {
+  if (error.name === "AbortError") {
+    throw new error ("throw time out")
+  }
+
+  throw error;
+}
+finally {
+  clearTimeout(timeOut);
+}
 
