@@ -29,6 +29,6 @@ async function displayNumber (url,ms) {
 
 }
 
-displayNumber ("https://jsonplaceholder.typicode.com/users")
+displayNumber ("https://jsonplaceholder.typicode.com/users",5000)
 .then (data => console.log(data))
 .catch (error => console.log(error));
