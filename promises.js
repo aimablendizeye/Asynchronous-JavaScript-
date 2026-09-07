@@ -20,23 +20,66 @@
 // .catch(error => console.log(error));
 
 
-// Q 1
+// Q 1    SetInterval () and SetTimeout Functions 
 
-function displaying () {
-    let count = 1;
 
-    const intervalTime = setInterval(() => {
-        console.log(count);
-        count ++;
-    },2000)
 
-    setTimeout (() =>{
-    clearInterval(intervalTime)
-    console.log("Stopped Displaying..");
-},5000);
+// function displaying () {
+//     let count = 1;
+
+//     const intervalTime = setInterval(() => {
+//         console.log(count);
+//         count ++;
+//     },2000)
+
+//     setTimeout (() =>{
+//     clearInterval(intervalTime)
+//     console.log("Stopped Displaying..");
+// },5000);
+// }
+
+// displaying();
+
+
+
+
+
+// Q2 PRomise All Method 
+
+
+async function fetchUserTodos(id, userId) { 
+    let url1 = "https://jsonplaceholder.typicode.com/users"
+    let url2 = "https://jsonplaceholder.typicode.com/todos"
+
+    const [usersResponse , toDosResponse ] = await Promise.all ([
+        fetch(url1) ,
+        fetch (url2)
+        
+    ])
+
+    const [usersData, toDosData] = await Promise.all([
+         usersResponse.json(),
+         toDosResponse.json ()
+    ])
+
+  return usersData.map (user => ({
+    ...user,
+     toDosData: toDosData.filter(todo => todo.Id === user.id)
+  }))
+ 
 }
 
-displaying();
+fetchUserTodos (5,10)
+                  .then(result => console.log(result))
+                  .catch (error => console.log(error));
+
+
+
+
+
+
+
+
 
 
 
