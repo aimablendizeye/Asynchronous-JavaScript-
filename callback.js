@@ -27,4 +27,18 @@
 //Converting 
 
 
+function fetchData () {
+  return new Promise (resolve => {
+    const data = "Data Fetched successful";
+    setTimeout (() => {
+      resolve(data);
+    })
+  })
+}
+
+fetchData ()
+           .then(result => console.log(result))
+           .catch (error => console.log(error));
+
+
 
