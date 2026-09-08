@@ -22,24 +22,55 @@
 // Q 6 from 
 
 
-function delay(ms) {
-    return new Promise(resolve => {
-        setTimeout (resolve,ms)
-    }) 
-}
+// function delay(ms) {
+//     return new Promise(resolve => {
+//         setTimeout (resolve,ms)
+//     }) 
+// }
 
-async function gettingCount() {
+// async function gettingCount() {
 
-    let numbers = [];
-     for (let i=0; i<5; i++) {
-      await delay(1000)
+//     let numbers = [];
+//      for (let i=0; i<5; i++) {
+//       await delay(1000)
 
-      console.log(i)
-      numbers.push(i);        
-          }
-          return numbers;
+//       console.log(i)
+//       numbers.push(i);        
+//           }
+//           return numbers;
     
+// }
+// gettingCount ()
+//               .then(numbers => console.log(numbers))
+//               .catch (error => console.log(error));
+
+
+async function myFetchRetries (url, retries) {
+
+    for (let tempt=0; tempt<=5; tempt++) {
+
+        try {
+            const response = await fetch(url) 
+            if (!response.ok) {
+                   throw new Error ("couldn't fetch the data")
+            }
+        const data = await response.json();
+        return data;
+
+        }catch {
+          if (tempt < retries) {
+           console.log("Retriying again")
+
+          }
+
+          else {
+            console.error(error);
+            
+          }
+    }
+ } 
 }
-gettingCount ()
-              .then(numbers => console.log(numbers))
-              .catch (error => console.log(error));
+
+
+
+    
