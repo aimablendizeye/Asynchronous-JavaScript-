@@ -48,34 +48,77 @@
 
 // Q2 
 
-async function getUserData(userId) {
-    try {
+// async function getUserData(userId) {
+//     try {
 
-         const user = await fetch(`/api/users/${userId}`);
-   if (!user.ok) {
-     throw new Error ("Couldn't fetch the data");
-   }
-  const userData = await user.json();
-  if (userData == null) {
-    console.log("No data Find");
-  }
+//          const user = await fetch(`/api/users/${userId}`);
+//    if (!user.ok) {
+//      throw new Error ("Couldn't fetch the data");
+//    }
+//   const userData = await user.json();
+//   if (userData == null) {
+//     console.log("No data Find");
+//   }
    
-  return userData.name.toUpperCase();
+//   return userData.name.toUpperCase();
 
-    }catch {
-          throw new Error ("brrrrrr")
+//     }catch {
+//           throw new Error ("brrrrrr")
             
-    }
+//     }
  
-}
+// }
 
-getUserData(3)
-             .then (userData => console.log(userData))
-             .catch(error => console.log(error))
+// getUserData(3)
+//              .then (userData => console.log(userData))
+//              .catch(error => console.log(error))
 
 
 
 // Q3
+
+
+function taskA () {
+    return new Promise (resolve => {
+        setTimeout(() =>  {
+            resolve("Task 1 Completed ")
+        },1000) 
+    })
+}
+
+function taskB () {
+    return new Promise (resolve => {
+        setTimeout(() =>  {
+            resolve("Task 2 Completed ")
+        },1000) 
+    })
+}
+
+function taskC () {
+    return new Promise (resolve => {
+        setTimeout(() =>  {
+            resolve("Task 3 Completed ")
+        },1000) 
+    })
+}
+
+
+async function allTask() {
+    const task1 = await taskA();
+    console.log(task1);
+     const task2 = await taskB();
+    console.log(task2);
+     const task3 = await taskC();
+    console.log(task3);
+
+    
+}
+
+allTask()
+        
+
+
+
 
 
 
