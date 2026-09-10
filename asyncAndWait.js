@@ -46,7 +46,36 @@
 
 
 
+// Q2 
 
+async function getUserData(userId) {
+    try {
+
+         const user = await fetch(`/api/users/${userId}`);
+   if (!user.ok) {
+     throw new Error ("Couldn't fetch the data");
+   }
+  const userData = await user.json();
+  if (userData == null) {
+    console.log("No data Find");
+  }
+   
+  return userData.name.toUpperCase();
+
+    }catch {
+          throw new Error ("brrrrrr")
+            
+    }
+ 
+}
+
+getUserData(3)
+             .then (userData => console.log(userData))
+             .catch(error => console.log(error))
+
+
+
+// Q3
 
 
 
