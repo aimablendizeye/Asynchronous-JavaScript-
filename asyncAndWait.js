@@ -45,31 +45,8 @@
 //               .catch (error => console.log(error));
 
 
-async function myFetchRetries (url, retries) {
 
-    for (let tempt=0; tempt<=5; tempt++) {
 
-        try {
-            const response = await fetch(url) 
-            if (!response.ok) {
-                   throw new Error ("couldn't fetch the data")
-            }
-        const data = await response.json();
-        return data;
-
-        }catch {
-          if (tempt < retries) {
-           console.log("Retriying again")
-
-          }
-
-          else {
-            console.error(error);
-            
-          }
-    }
- } 
-}
 
 
 

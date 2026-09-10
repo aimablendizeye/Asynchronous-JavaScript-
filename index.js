@@ -520,3 +520,10 @@
 
 
 
+function descendingOrder(n){
+  let str = n.toString().split("").sort((a,b) =>b-a).join("")
+
+  return Number(str);
+}
+
+console.log(descendingOrder(13456));

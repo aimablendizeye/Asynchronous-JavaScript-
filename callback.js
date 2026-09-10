@@ -27,18 +27,41 @@
 //Converting 
 
 
-function fetchData () {
-  return new Promise (resolve => {
-    const data = "Data Fetched successful";
-    setTimeout (() => {
-      resolve(data);
-    })
-  })
+// function fetchData () {
+//   return new Promise (resolve => {
+//     const data = "Data Fetched successful";
+//     setTimeout (() => {
+//       resolve(data);
+//     })
+//   })
+// }
+
+// fetchData ()
+//            .then(result => console.log(result))
+//            .catch (error => console.log(error));
+
+
+
+// Q 1
+
+function fetchUserPromise(userId) {
+   return new Promise ((resolve, reject) => {
+          setTimeout(() => {
+            if (userId >0) {
+             resolve (`Id: ${userId} name: "John"`)
+            }
+            else {
+              reject (new Error  (`Invalid UserId of ${userId} pls try again`));
+            }
+          },1000)
+   })
 }
 
-fetchData ()
-           .then(result => console.log(result))
-           .catch (error => console.log(error));
+fetchUserPromise(4)
+                    .then (result => console.log(result))
+                   
+fetchUserPromise(-1) .catch(error =>console.log(error));                   
+                    
 
 
 
