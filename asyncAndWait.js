@@ -103,18 +103,34 @@ function taskC () {
 }
 
 
-async function allTask() {
-    const task1 = await taskA();
-    console.log(task1);
-     const task2 = await taskB();
-    console.log(task2);
-     const task3 = await taskC();
-    console.log(task3);
+// async function allTask() {
+//     const task1 = await taskA();
+//     console.log(task1);
+//      const task2 = await taskB();
+//     console.log(task2);
+//      const task3 = await taskC();
+//     console.log(task3);
 
+// }
+
+
+
+
+
+async function  allTask() {
+
+    const [task1,task2,task3] = await Promise.all([
+          taskA(),taskB(),taskC()
+    ])
+
+            return [task1,task2,task3]
     
 }
-
-allTask()
+ allTask().then (result => {
+    for(let data of result) {
+        console.log(data);
+    }
+ })
         
 
 
