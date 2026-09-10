@@ -115,25 +115,88 @@ function taskC () {
 
 
 
+// Second version 
 
 
-async function  allTask() {
 
-    const [task1,task2,task3] = await Promise.all([
-          taskA(),taskB(),taskC()
-    ])
+// async function  allTask() {
 
-            return [task1,task2,task3]
+//     const [task1,task2,task3] = await Promise.all([
+//           taskA(),taskB(),taskC()
+//     ])
+
+//             return [task1,task2,task3]
     
-}
- allTask().then (result => {
-    for(let data of result) {
-        console.log(data);
-    }
- })
+// }
+//  allTask().then (result => {
+//     for(let data of result) {
+//         console.log(data);
+//     }
+//  })
         
 
 
+// async function greeting(name) {
+//      return `Hello ${name}`;
+// }
+
+// console.log(greeting("Aimable"))
+
+
+
+// async function mystery1() {
+//   return 'hello';
+// }
+
+// async function mystery2() {
+//   return Promise.resolve('world');
+// }
+
+// function mystery3() {
+//   return Promise.resolve('!');
+// }
+
+// // What do these log?
+// console.log(mystery1());           // ?
+// console.log(await mystery1());     // ?
+// console.log(mystery2());           // ?
+// console.log(await mystery2());     // ?
+// console.log(mystery3());           // ?
+// console.log(await mystery3());     // ?
+
+// // Fix this function to properly log "hello world!"
+// async function fixMe() {
+//   const a =await mystery1();
+//   const b =await mystery2();
+//   const c =await  mystery3();
+//   console.log(a + ' ' + b + c);
+// }
+
+// fixMe();
+
+
+
+
+
+// Q 6 
+
+console.log('1');
+
+setTimeout(() => console.log('2'), 0);
+
+Promise.resolve().then(() => console.log('3'));
+
+console.log('4');
+
+async function test() {
+  console.log('5');
+  await Promise.resolve();
+  console.log('6');
+}
+
+test();
+
+console.log('7');
 
 
 
