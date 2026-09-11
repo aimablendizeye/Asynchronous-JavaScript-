@@ -520,10 +520,25 @@
 
 
 
-function descendingOrder(n){
-  let str = n.toString().split("").sort((a,b) =>b-a).join("")
+// function descendingOrder(n){
+//   let str = n.toString().split("").sort((a,b) =>b-a).join("")
 
-  return Number(str);
-}
+//   return Number(str);
+// }
 
-console.log(descendingOrder(13456));
+// console.log(descendingOrder(13456));
+
+
+// const task = function  (){
+//       setTimeout (() =>{
+//         console.log("task1");
+//       },5000)
+// }
+
+
+
+
+
+
+
+

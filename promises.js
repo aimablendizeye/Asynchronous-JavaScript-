@@ -47,31 +47,53 @@
 // Q2 PRomise All Method 
 
 
-async function fetchUserTodos(id, userId) { 
-    let url1 = "https://jsonplaceholder.typicode.com/users"
-    let url2 = "https://jsonplaceholder.typicode.com/todos"
+// async function fetchUserTodos(id, userId) { 
+//     let url1 = "https://jsonplaceholder.typicode.com/users"
+//     let url2 = "https://jsonplaceholder.typicode.com/todos"
 
-    const [usersResponse , toDosResponse ] = await Promise.all ([
-        fetch(url1) ,
-        fetch (url2)
+//     const [usersResponse , toDosResponse ] = await Promise.all ([
+//         fetch(url1) ,
+//         fetch (url2)
         
-    ])
+//     ])
 
-    const [usersData, toDosData] = await Promise.all([
-         usersResponse.json(),
-         toDosResponse.json ()
-    ])
+//     const [usersData, toDosData] = await Promise.all([
+//          usersResponse.json(),
+//          toDosResponse.json ()
+//     ])
 
-  return usersData.map (user => ({
-    ...user,
-     toDosData: toDosData.filter(todo => todo.Id === user.id)
-  }))
+//   return usersData.map (user => ({
+//     ...user,
+//      toDosData: toDosData.filter(todo => todo.Id === user.id)
+//   }))
  
+// }
+
+// fetchUserTodos (5,10)
+//                   .then(result => console.log(result))
+//                   .catch (error => console.log(error));
+
+
+// Q 7
+
+function getUserLikes(userId) {
+
+  return fetch(`/api/users/${userId}`)
+
+            .then(data => data.json())
+            .then(user => fetch(`/api/users/${user.id}/posts`))
+            .then(userPost => userPost.json())
+            .then(posts => posts.filter(post => post.likes))
+            .then(likesArr => likesArr.reduce((a, b) => a + b.likes, 0))
+            .then(sum => console.log(sum))
+            .catch(error => console.log(error));
+
 }
 
-fetchUserTodos (5,10)
-                  .then(result => console.log(result))
-                  .catch (error => console.log(error));
+
+   
+
+
 
 
 

@@ -77,6 +77,9 @@
 
 // Q3
 
+// First version 
+
+
 
 function taskA () {
     return new Promise (resolve => {
@@ -103,15 +106,15 @@ function taskC () {
 }
 
 
-// async function allTask() {
-//     const task1 = await taskA();
-//     console.log(task1);
-//      const task2 = await taskB();
-//     console.log(task2);
-//      const task3 = await taskC();
-//     console.log(task3);
+async function allTask() {
+    const task1 = await taskA();
+    console.log(task1);
+     const task2 = await taskB();
+    console.log(task2);
+     const task3 = await taskC();
+    console.log(task3);
 
-// }
+}
 
 
 
@@ -119,66 +122,67 @@ function taskC () {
 
 
 
-// async function  allTask() {
+async function  allTask() {
 
-//     const [task1,task2,task3] = await Promise.all([
-//           taskA(),taskB(),taskC()
-//     ])
+    const [task1,task2,task3] = await Promise.all([
+          taskA(),taskB(),taskC()
+    ])
 
-//             return [task1,task2,task3]
+            return [task1,task2,task3]
     
-// }
-//  allTask().then (result => {
-//     for(let data of result) {
-//         console.log(data);
-//     }
-//  })
+}
+ allTask().then (result => {
+    for(let data of result) {
+        console.log(data);
+    }
+ })
         
 
 
-// async function greeting(name) {
-//      return `Hello ${name}`;
-// }
 
-// console.log(greeting("Aimable"))
+
+// Async and await 
 
 
 
-// async function mystery1() {
-//   return 'hello';
-// }
+async function mystery1() {
+  return 'hello';
+}
 
-// async function mystery2() {
-//   return Promise.resolve('world');
-// }
+async function mystery2() {
+  return Promise.resolve('world');
+}
 
-// function mystery3() {
-//   return Promise.resolve('!');
-// }
+function mystery3() {
+  return Promise.resolve('!');
+}
 
-// // What do these log?
-// console.log(mystery1());           // ?
-// console.log(await mystery1());     // ?
-// console.log(mystery2());           // ?
-// console.log(await mystery2());     // ?
-// console.log(mystery3());           // ?
-// console.log(await mystery3());     // ?
+// What do these log?
+console.log(mystery1());           // ?
+console.log(await mystery1());     // ?
+console.log(mystery2());           // ?
+console.log(await mystery2());     // ?
+console.log(mystery3());           // ?
+console.log(await mystery3());     // ?
 
-// // Fix this function to properly log "hello world!"
-// async function fixMe() {
-//   const a =await mystery1();
-//   const b =await mystery2();
-//   const c =await  mystery3();
-//   console.log(a + ' ' + b + c);
-// }
+// Fix this function to properly log "hello world!"
+async function fixMe() {
+  const a =await mystery1();
+  const b =await mystery2();
+  const c =await  mystery3();
+  console.log(a + ' ' + b + c);
+}
 
-// fixMe();
+fixMe();
 
 
 
 
 
 // Q 6 
+
+// Event Loop 
+
 
 console.log('1');
 

@@ -452,6 +452,31 @@
 // })
 
 
+// Q 9 
+
+
+ //  for of version 
+
+async function processUsers(userIds) {
+
+  let result = [];
+  let response = userIds.map(urls => fetch(urls))
+
+  for await (let id of response){
+    let data = await id.json()
+    result.push(data)
+  }
+
+  return result;
+
+  
+}
+
+
+
+
+
+
 
   
 
