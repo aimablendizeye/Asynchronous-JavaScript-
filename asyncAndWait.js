@@ -206,3 +206,83 @@ console.log('7');
 
 
     
+
+// Q 9
+
+// version 1 of delaying
+
+
+function delay(ms) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Time starting");
+        }, ms);
+    });
+}
+
+async function example() {
+    try {
+        console.log("Start");
+
+        let task1 = await delay(1000);
+        console.log(task1);
+
+        console.log("After 1 second");
+
+        let task2 = await delay(2000);
+        console.log(task2);
+
+        console.log("After 3 seconds total");
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+example();
+
+
+
+// Version 2 of cancelling delay 
+
+
+function delay(ms, signal) {
+    return new Promise((resolve, reject) => {
+
+        const timeOut = setTimeout(() => {
+            resolve();
+        }, ms);
+
+        signal.addEventListener("abort", () => {
+            clearTimeout(timeOut);
+            reject(new Error("Delay cancelled"));
+        });
+    });
+}
+
+
+async function cancellableDelay() {
+    const controller = new AbortController();
+
+    try {
+        const promise = delay(1000, controller.signal);
+
+        // Cancel after 500ms
+        setTimeout(() => {
+            controller.abort();
+        }, 500);
+
+        await promise;
+
+        console.log("Delay finished");
+
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+cancellableDelay();
+
+
+
+
