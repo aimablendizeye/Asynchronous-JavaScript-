@@ -91,6 +91,85 @@ function getUserLikes(userId) {
 }
 
 
+
+// Q 10 
+
+ 
+
+// Approach 1 using promise 
+
+function fetchDataPromise(url) {
+    return new Promise((resolve, reject) => {
+
+        fetch(url)
+            .then(response => {
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+
+                return response.json();
+            })
+            .then(data => {
+                resolve(data);
+            })
+            .catch(error => {
+                reject(error);
+            });
+
+    });
+  }
+
+
+
+// 2. Using async/await
+
+//This is usually easier to read because it looks more like normal step-by-step code.
+
+async function fetchDataAsync(url) {
+    try {
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        return data;
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+// 3. Using .then() chaining
+
+// Here we don't create a new Promise because `fetch()` already returns one.
+
+
+
+function fetchDataThen(url) {
+
+    return fetch(url)
+        .then(response => {
+
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            return data;
+        })
+        .catch(error => {
+            throw error;
+        });
+}
+
+
    
 
 
