@@ -1,20 +1,46 @@
 
 
-// fetching using promise 
+// Q 12 
+
+// function* randomNumber () {
+//     const nums = Math.random(1,100) * 100;
+
+//     yield nums;
+    
+// }
+
+// const calling = randomNumber();
+
+// console.log(calling.next());
 
 
-function fetchDataPromise(url) {
 
-    return fetch(url)
-        .then(response => {
 
-            if (!response.ok) {
-                throw new Error(
-                    `Http request error: ${response.status}`
-                );
-            }
-
-            return response.json();
-        });
+function delay (ms) {
+    return new Promise (resolve => {
+        setTimeout(resolve,ms)
+    })
 }
+
+async function* randomNumber() {
+     for (let i=1; i<=5; i++) {
+        await delay(500)
+
+        let numbers = Math.floor(Math.random() * 100) +1;
+
+        yield numbers;
+     }  
+}
+
+async function run() {
+
+    for await (let numbers of randomNumber()) {
+        console.log(numbers);
+    }
+    
+}
+
+ run();
+
+
 
