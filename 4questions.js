@@ -40,3 +40,47 @@ async function getUserDashboard() {
 getUserDashboard()
                .then (data => console.log(data))
                .catch(error => console.error(error))
+
+
+
+ 
+
+               
+// Q 2
+
+
+async function loadUserData() {
+  const controller = new AbortController();
+
+  const timeout = setTimeout(() => {
+    controller.abort();
+  }, 2000);
+
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users",
+      {
+        signal: controller.signal
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("HTTP error occurred");
+    }
+
+    const data = await response.json();
+
+    console.log(data);
+  } catch (error) {
+    if (error.name === "AbortError") {
+      console.log("Request cancelled");
+    } else {
+      console.error("Something went wrong:", error);
+      throw error;
+    }
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+loadUserData();               
