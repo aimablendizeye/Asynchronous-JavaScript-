@@ -72,6 +72,7 @@ async function loadUserData() {
 
     console.log(data);
   } catch (error) {
+    
     if (error.name === "AbortError") {
       console.log("Request cancelled");
     } else {
@@ -83,4 +84,38 @@ async function loadUserData() {
   }
 }
 
-loadUserData();               
+loadUserData();   
+
+
+ //  Q 3 
+
+
+  function getUsers() {
+ 
+    const xhr = new XMLHttpRequest();
+    xhr.open ('GET',"https://jsonplaceholder.typicode.com/users",true)
+
+  
+
+    xhr.onload = () => {
+        if (xhr.status >=200 && xhr.status<300) {
+            const users =JSON.parse(xhr.responseText) ;
+
+            for (let user of users) {
+                console.log(user.name)
+            }
+        }
+        else  {
+            throw new Error ("Could not fetch data")
+        }
+
+    }
+
+    xhr.onerror = () => {
+         throw new Error ("Network error")
+    }
+
+    xhr.send();
+}
+
+getUsers();
