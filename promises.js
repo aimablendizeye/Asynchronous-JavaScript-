@@ -156,6 +156,32 @@ function fetchDataThen(url) {
 }
 
 
+
+
+
+// Promise Channing 
+
+
+function chainning (num) {
+  return new Promise(resolve => {
+     setTimeout (() => {
+      resolve(num)
+     },2000)
+  }
+)
+}
+
+chainning(5)
+  .then(data =>  {
+     console.log(data )
+      return data * 4;
+  } ).then(res => {
+     console.log(res)
+      return res * 8
+  
+}).then(tot => {
+  console.log(tot)
+})
    
 
 
