@@ -1,4 +1,5 @@
 
+//  Example 1;
 
 function myFetch(url) {
   return new Promise((resolve, reject) => {
@@ -30,7 +31,17 @@ myFetch("https://jsonplaceholder.typicode.com/users")
 
 
 
+ //  Example 2 
  
+ const xhr = new XMLHttpRequest();
+
+xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+
+xhr.onload = function () {
+  console.log(xhr.responseText);
+};
+
+xhr.send();
 
 
 
