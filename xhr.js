@@ -9,7 +9,9 @@ function myFetch(url) {
 
     xhr.onload = () => {
       if (xhr.status >= 200 && xhr.status < 300) {
-        resolve(xhr.responseText);
+
+        let data = JSON.parse(xhr.responseText)
+        resolve(data);
       } else {
         reject(new Error(`Request failed with status ${xhr.status}`));
       }
@@ -38,7 +40,8 @@ myFetch("https://jsonplaceholder.typicode.com/users")
 xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
 
 xhr.onload = function () {
-  console.log(xhr.responseText);
+  let data = JSON.parse(xhr.responseText)
+  console.log(data);
 };
 
 xhr.send();
@@ -46,3 +49,30 @@ xhr.send();
 
 
  
+
+// Example 3 with using response and responsetype  = "json";
+
+
+const xhr = new XMLHttpRequest();
+
+xhr.open(
+  "GET",
+  "https://jsonplaceholder.typicode.com/posts/1"
+);
+
+xhr.responseType = "json";
+
+xhr.onload = function () {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    console.log("Success!");
+    console.log(xhr.response);
+  } else {
+    console.log("Request failed:", xhr.status);
+  }
+};
+
+xhr.onerror = function () {
+  console.log("Network error!");
+};
+
+xhr.send();
