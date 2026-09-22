@@ -186,8 +186,54 @@ chainning(5)
 
 
 
+// Promise.all
+
+function fetchMultipleAPIs (apiUrls) {
+  return Promise.all (
+           apiUrls.map(url => fetch(url)))
+           .then (response => Promise.all(response.map(data => data.json()))).then(data => {
+    for (let res of data){
+      console.log(res.title) 
+    }
+  }) 
+}
+
+const apiUrls = [
+  'https://jsonplaceholder.typicode.com/posts/4',
+  'https://jsonplaceholder.typicode.com/posts/5',
+  'https://jsonplaceholder.typicode.com/posts/6'
+];
+
+fetchMultipleAPIs(apiUrls)
+  .then(results => {
+    console.log('Combined Results:', results);
+  })
+  .catch(error => {
+    console.log('Error:', error.message);
+  });
 
 
+
+// Create alarm 
+
+
+function createAlarm (name, ms) {
+  return new Promise ((resolve,reject) =>{
+    setTimeout (() => {
+      if (ms >=2) {
+        resolve(`Wake up ${name}`)
+      }
+      else {
+         reject("Delay is not sufficient")
+      }
+     },ms * 1000)
+       
+      
+  })
+}
+createAlarm('Aimable',1)
+                       .then (message => console.log(message))
+                       .catch(error => console.log(error))
 
 
 
