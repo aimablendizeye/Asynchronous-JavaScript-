@@ -1,39 +1,40 @@
 
-//  Debouncing
+function createDebouncedSearch(delay) {
+  let timerId;
+  let controller;
 
+  return function search(query) {
+    clearTimeout(timerId);
 
-// function debounce (func,delay) {
-
-// let timeOutId;
-// return function (...arg) {
-//   clearInterval(timeOutId)
-
-//   timeOutId = setTimeout (() => {
-//     func.apply (this, arg)
-//   },delay)
-// }
-
-// }
-
-
-// Throttling 
-
-
-function throttling (func, limit) {
-
-  let inThrottle;
-
-  return function (...arg) {
-    if (!inThrottle) {
-      func.apply(this,arg)
-      inThrottle = true;
+    // Cancel the previous in-flight request, if any
+    if (controller) {
+      controller.abort();
     }
 
-    setTimeout (() => {
-      inThrottle = false
-    },limit)
-  }
+    timerId = setTimeout(async () => {
+      controller = new AbortController();
+
+      try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`,
+          { signal: controller.signal }
+        );
+
+        if (!response.ok) {
+          throw new Error("Search failed");
+        }
+
+        const results = await response.json();
+        console.log(results);
+
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.error(error);
+        }
+      }
+    }, delay);
+  };
 }
 
+const search = createDebouncedSearch(300);
 
 

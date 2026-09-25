@@ -76,3 +76,30 @@ xhr.onerror = function () {
 };
 
 xhr.send();
+
+
+// Post 
+
+const xhr = new XMLHttpRequest();
+
+xhr.open(
+  "GET",
+  "https://jsonplaceholder.typicode.com/posts/1"
+);
+
+xhr.responseType = "json";
+
+xhr.onload = function () {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    console.log("Success!");
+    console.log(xhr.response);
+  } else {
+    console.log("Request failed:", xhr.status);
+  }
+};
+
+xhr.onerror = function () {
+  console.log("Network error!");
+};
+
+xhr.send();
