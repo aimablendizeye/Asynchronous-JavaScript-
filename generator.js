@@ -1,5 +1,5 @@
 
-// Generators : Is a special Function that cn pause and resume 
+// Generators : Is a special Function that can pause and resume 
 //  it makes iterator very easier 
 
 // example 
@@ -96,6 +96,25 @@ async function run() {
     
 }
  run();
+
+
+
+ //  example on Async Generator 
+
+
+ async function* numbers() {
+  yield 1;
+
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
+  yield 2;
+  yield 3;
+}
+
+for await (const number of numbers()) {
+  console.log(number);
+}
+
 
 
  
