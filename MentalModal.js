@@ -44,13 +44,10 @@ async function fetchingInf(name) {
     const data1 = await response1.json();
     let country =  data1.find (n => n.country == name);
 
-     const response2 = await fetch ("https://restcountries.com/v3.1/name/{countryName}")
+     const response2 = await fetch (`https://restcountries.com/v3.1/name/${countryName}`)
      const data2 = await response2.json();
      let capital = data2.find (city => city.capital === country);
+     return capital;
 
-     
-
-
-
-    
+      
 }

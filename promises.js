@@ -24,12 +24,6 @@
 
 
 
-
-
-
-
-
-
 // Q2 PRomise All Method 
 
 
@@ -191,10 +185,11 @@ chainning(5)
 function fetchMultipleAPIs (apiUrls) {
   return Promise.all (
            apiUrls.map(url => fetch(url)))
-           .then (response => Promise.all(response.map(data => data.json()))).then(data => {
-    for (let res of data){
-      console.log(res.title) 
-    }
+           .then (response => Promise.all(response.map(data => data.json())))
+           .then(data => {
+            for (let res of data){
+              console.log(res.title) 
+    } 
   }) 
 }
 
@@ -204,7 +199,7 @@ const apiUrls = [
   'https://jsonplaceholder.typicode.com/posts/6'
 ];
 
-fetchMultipleAPIs(apiUrls)
+fetchMultipleAPIs (apiUrls)
   .then(results => {
     console.log('Combined Results:', results);
   })
