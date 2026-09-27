@@ -7,6 +7,7 @@ async function displayNumber (url,ms) {
           controller.abort();
         
     },ms)
+
     try {
         const response = await fetch (url, {
             signal : controller.signal
@@ -23,6 +24,7 @@ async function displayNumber (url,ms) {
             throw new Error ("Request timeout")
         }
     }
+    
     finally {
            clearTimeout(timeOut);
     }
@@ -41,6 +43,7 @@ async function myFetching (url,ms) {
    let timeOut = setTimeout (() =>{
            controller.abort()
    },ms)
+
    try {
      let names = [];
        let response = await fetch(url,{
@@ -60,11 +63,13 @@ async function myFetching (url,ms) {
      for (let num of newArr) {
        console.log(num)
      };
+
      
    }catch(error) {
      if (error.name == "AbortError") {
        throw new Error ("Request time out ")
      }
+
    }finally {
      clearTimeout(timeOut);
    }
