@@ -78,8 +78,11 @@ async function fetchWithTimeout(url, ms) {
   const timeOut = setTimeout(() => {
       controller.abort();
   },ms)
-}
 
+
+
+
+  
 try {
   const response = await fetch (url)
   if (!response.ok) {
@@ -98,4 +101,7 @@ try {
 finally {
   clearTimeout(timeOut);
 }
+
+}
+
 

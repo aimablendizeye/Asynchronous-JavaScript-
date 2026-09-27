@@ -103,3 +103,59 @@ xhr.onerror = function () {
 };
 
 xhr.send();
+
+
+//
+
+
+  let  xhr = new XMLHttpRequest ();
+
+  xhr.open ('GET',"https://jsonplaceholder.typicode.com/users");
+  xhr.responseText = "json";
+
+   xhr.onload = function(){
+
+    if (xhr.status >=200 && xhr.status <300) {
+       console.log(xhr.response);
+
+    }
+    else {
+      console.log("Error:",xhr.status)
+    }   
+   };
+   xhr.onerror = function () {
+      console.log("Network Error");
+   }
+
+   xhr.send();
+
+
+
+
+   // Post Method 
+
+
+async function pushData () {
+  const user = {
+    id : 2929,
+    name : "Aimable",
+    address : "Kanombe"
+  }
+
+  const response = await fetch("https://jsonplaceholder.typicode.com/users" ,{
+      method : "POST",
+      headers : {
+        "Content-Type" : "application/json"
+      },
+      body :  JSON.stringify(user)
+
+  })
+
+  const data = await response.json ();
+
+  console.log(data);
+
+
+}
+
+pushData ();
