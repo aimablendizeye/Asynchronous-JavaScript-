@@ -47,3 +47,21 @@ function display(nums) {
 }
 
 display([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+
+
+
+// Displaying Different colors 
+
+function changeBackgroundColor() {
+    const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+
+    let index = 0;
+
+    setInterval(() => {
+        document.body.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length;
+    }, 3000);
+}
+
+changeBackgroundColor();
